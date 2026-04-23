@@ -1,27 +1,32 @@
-//Miles Rampton | Apr 14 2026 | TankGame
+ //Miles Rampton | Apr 14 2026 | TankGame
 PImage bg;
 Tank tank1;
 ArrayList<Obstacle> obstacles = new ArrayList<Obstacle>();
 ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
 int score;
+Timer obsTimer
 
 void setup() {
 size(500,500);
   bg = loadImage("bg.png");
   tank1 = new Tank();
-  obstacles.add(new Obstacle(250,250));
-  obstacles.add(new Obstacle(250,400));
-  obstacles.add(new Obstacle(250,400));
+  //obstacles.add(new Obstacle(250,250));
+  //obstacles.add(new Obstacle(250,400));
+ //obstacles.add(new Obstacle(250,400));
 score = 0;
+obsTimer = new Timer(1000);
+obsTimer.start();
 }
 
 void draw() {
 background(127);
 imageMode(CORNER);
 image(bg,0,0);
-// add timer to distribute
-//obstacles.add(new Obstacle(250,350));
-
+// add timer to distribute obstacles
+if(obsTimer.isFinished()) {
+  obstacles.add(new Obstacle(-100,int(random(height))));
+  obsTimer.start();
+//obstacles.add(new Obstacle(250, 250));
 //Displaying obstacles
  for (int i = 0; i < obstacles.size(); i++) {
   Obstacle o  = obstacles.get(i);

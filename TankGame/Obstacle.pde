@@ -1,29 +1,42 @@
 class Obstacle {
-  int x, y, w, h, speed, health;
- PImage obs;
- boolean reachedEdge) {
-if(x > width || x < -101 || y > height || y ‹ o){
-return true;
-} else {
-return false;
-}
-}
+ float x, y, w, h, speed, health;
+  PImage obs;
+ char idir
   // Constructor
-  Obstacle(int x, int y) {
-    this.x = x;
-    this.y = y;
-    w = 100;
-    h = 100;
-    speed = 2;
-    health = 75;
-  }
+  Obstacle(float w, float h, float speed, float health) {
+    this.w = w;
+    this.h = h;
+   this.speed = speed;
+   this.health = health;
+   if (int(random(4))==2)
+   idir = 'w';
+   x = random(width);
+   y = height + 100
+  } else if (int(random(3))==1) {
+    idir = 'd';
+    x = -100
+    y = random (height);
+  }else if (int(random(2))==1) {
+    idir = 'a';
+    x =width+100
+    y= random(height);
+  }else{
+    idir = 's';
+    x = random(width);
+    y = -100;
+  } 
+    
 
   void display() {
-   rectMode(CENTER);
-   fill(127);
-   rect(x,y,w,h);
+    rectMode(CENTER);
+    fill(127);
+    rect(x, y, w, h);
   }
   void move() {
-  
+  }
+}
+
+boolean reachedSide() {
+return x >=width+150|| x <= -150 || y> height +150 ||
   }
 }

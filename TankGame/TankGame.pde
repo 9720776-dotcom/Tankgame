@@ -3,6 +3,7 @@ PImage bg;
 Tank tank1;
 ArrayList<Obstacle> obstacles = new ArrayList<Obstacle>();
 ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
+ArrayList<PowerUp> powerups = new ArrayList<PowerUp>();
 int score;
 Timer obsTimer
 
@@ -10,12 +11,12 @@ void setup() {
 size(500,500);
   bg = loadImage("bg.png");
   tank1 = new Tank();
-  //obstacles.add(new Obstacle(250,250));
-  //obstacles.add(new Obstacle(250,400));
- //obstacles.add(new Obstacle(250,400));
+  obstacles.add(new Obstacle(250,250));
+ obstacles.add(new Obstacle(250,400));
+ obstacles.add(new Obstacle(250,400));
 score = 0;
-obsTimer = new Timer(1000);
-obsTimer.start();
+obsjTimer = new Timer(1000);
+objTimer.start();
 }
 
 void draw() {
@@ -49,8 +50,6 @@ rect(width/2,30,width,60);
 fill(255);
 textSize(30);
 text("Score:",width/2,50);
-
-
 }
 
 
